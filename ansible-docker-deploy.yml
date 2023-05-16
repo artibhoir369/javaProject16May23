@@ -1,0 +1,6 @@
+---
+  - hosts: all
+    become: true
+    tasks:
+      - name: "deploy docker image"
+        shell: "docker rm -f java-container && docker rmi artibhoir369/java-app; docker run -itd -p 80:8080 --name java-container artibhoir369/java-app"
