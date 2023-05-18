@@ -38,5 +38,11 @@ pipeline {
                 sh "sudo docker push artibhoir369/java-app"
             }
         }
+        
+        stage('Deploy') {
+            steps {
+                sh "ansible-playbook ansible-docker-deploy.yml"
+            }
+        }
     }
 }
